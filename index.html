@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Logic & Truth Value Simulator - Interactive propositional logic analyzer, truth table generator and logical equivalence checker."
+    >
+
+    <meta
+        name="author"
+        content="Logic & Truth Value Simulator"
+    >
+
+    <meta
+        name="theme-color"
+        content="#050816"
+    >
+
+    <title>Logic & Truth Value Simulator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a href="#" class="brand" aria-label="Logic & Truth Home">
+
+                <div class="brand-icon">
+                    ∴
+                </div>
+
+                <div>
+                    <h1>Logic & Truth</h1>
+                    <p>Propositional Logic Simulator</p>
+                </div>
+
+            </a>
+
+            <div class="header-actions">
+
+                <button
+                    id="themeToggle"
+                    class="icon-button"
+                    title="Toggle theme"
+                    type="button"
+                    aria-label="Toggle theme"
+                >
+                    ☀
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="main-container">
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+        <section class="hero-section">
+
+            <div class="hero-grid-decoration"></div>
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    LOGIC ENGINE
+                </span>
+
+                <h2>
+                    Understand logic.
+                    <span>Don't just calculate it.</span>
+                </h2>
+
+                <p>
+                    Enter a propositional logic formula and let the simulator
+                    tokenize, parse, evaluate, explain, and classify it.
+                </p>
+
+                <div class="hero-features">
+
+                    <span>
+                        <b>01</b>
+                        Parse
+                    </span>
+
+                    <span>
+                        <b>02</b>
+                        Evaluate
+                    </span>
+
+                    <span>
+                        <b>03</b>
+                        Explain
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             FORMULA ANALYZER
+        ========================== -->
+
+        <section class="panel analyzer-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="section-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Formula Analyzer
+                    </h3>
+
+                    <p>
+                        Enter a logical proposition to analyze it.
+                    </p>
+
+                </div>
+
+                <div class="panel-status">
+                    <span class="status-dot"></span>
+                    Ready
+                </div>
+
+            </div>
+
+            <!-- Formula input -->
+
+            <div class="input-group">
+
+                <label for="formulaInput">
+                    Logical Formula
+                </label>
+
+                <div class="formula-input-wrapper">
+
+                    <input
+                        id="formulaInput"
+                        type="text"
+                        autocomplete="off"
+                        spellcheck="false"
+                        placeholder="Example: (P ^ Q) -> P"
+                        value="(P ^ Q) -> P"
+                    >
+
+                    <button
+                        id="clearFormula"
+                        class="clear-input"
+                        type="button"
+                        title="Clear formula"
+                        aria-label="Clear formula"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="input-hint">
+                    <span>Supported variables:</span>
+                    P, Q, R, S
+                    <span class="hint-separator">•</span>
+                    <span>Use the builder below if needed.</span>
+                </div>
+
+            </div>
+
+            <!-- Formula builder -->
+
+            <div class="builder">
+
+                <div class="builder-title">
+                    Formula Builder
+                </div>
+
+                <div class="builder-buttons">
+
+                    <button
+                        class="logic-key"
+                        data-insert="P"
+                        type="button"
+                    >
+                        P
+                    </button>
+
+                    <button
+                        class="logic-key"
+                        data-insert="Q"
+                        type="button"
+                    >
+                        Q
+                    </button>
+
+                    <button
+                        class="logic-key"
+                        data-insert="R"
+                        type="button"
+                    >
+                        R
+                    </button>
+
+                    <button
+                        class="logic-key"
+                        data-insert="S"
+                        type="button"
+                    >
+                        S
+                    </button>
+
+                    <button
+                        class="logic-key operator"
+                        data-insert="~"
+                        type="button"
+                    >
+                        ¬
+                    </button>
+
+                    <button
+                        class="logic-key operator"
+                        data-insert=" ^ "
+                        type="button"
+                    >
+                        ∧
+                    </button>
+
+                    <button
+                        class="logic-key operator"
+                        data-insert=" v "
+                        type="button"
+                    >
+                        ∨
+                    </button>
+
+                    <button
+                        class="logic-key operator"
+                        data-insert=" -> "
+                        type="button"
+                    >
+                        →
+                    </button>
+
+                    <button
+                        class="logic-key operator"
+                        data-insert=" <-> "
+                        type="button"
+                    >
+                        ↔
+                    </button>
+
+                    <button
+                        class="logic-key bracket"
+                        data-insert="("
+                        type="button"
+                    >
+                        (
+                    </button>
+
+                    <button
+                        class="logic-key bracket"
+                        data-insert=")"
+                        type="button"
+                    >
+                        )
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Examples -->
+
+            <div class="examples-section">
+
+                <div class="examples-title">
+                    Quick Examples
+                </div>
+
+                <div class="example-buttons">
+
+                    <button
+                        class="example-button"
+                        data-example="P v ~P"
+                        type="button"
+                    >
+                        Law of Excluded Middle
+                    </button>
+
+                    <button
+                        class="example-button"
+                        data-example="P ^ ~P"
+                        type="button"
+                    >
+                        Contradiction
+                    </button>
+
+                    <button
+                        class="example-button"
+                        data-example="(P ^ Q) -> P"
+                        type="button"
+                    >
+                        Modus Ponens Structure
+                    </button>
+
+                    <button
+                        class="example-button"
+                        data-example="~(P ^ Q) <-> (~P v ~Q)"
+                        type="button"
+                    >
+                        De Morgan's Law
+                    </button>
+
+                    <button
+                        class="example-button"
+                        data-example="P -> P"
+                        type="button"
+                    >
+                        Identity
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Main actions -->
+
+            <div class="action-row">
+
+                <button
+                    id="analyzeButton"
+                    class="primary-button"
+                    type="button"
+                >
+                    <span>Analyze Formula</span>
+                    <span class="button-arrow">→</span>
+                </button>
+
+                <button
+                    id="resetButton"
+                    class="secondary-button"
+                    type="button"
+                >
+                    Reset
+                </button>
+
+            </div>
+
+            <!-- Error -->
+
+            <div
+                id="errorBox"
+                class="error-box hidden"
+                role="alert"
+            >
+
+                <div class="error-icon">
+                    !
+                </div>
+
+                <div>
+
+                    <strong>
+                        Formula Error
+                    </strong>
+
+                    <p id="errorMessage"></p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             RESULT SUMMARY
+        ========================== -->
+
+        <section
+            id="resultsSection"
+            class="results-section hidden"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Analysis Result
+                    </h3>
+
+                    <p>
+                        Here's what the logic engine discovered.
+                    </p>
+
+                </div>
+
+                <button
+                    id="copyFormulaButton"
+                    class="small-button"
+                    type="button"
+                >
+                    Copy Formula
+                </button>
+
+            </div>
+
+            <div class="result-grid">
+
+                <article class="result-card">
+
+                    <span class="result-label">
+                        Classification
+                    </span>
+
+                    <strong
+                        id="classificationResult"
+                        class="classification"
+                    >
+                        —
+                    </strong>
+
+                    <p id="classificationDescription">
+                        —
+                    </p>
+
+                </article>
+
+                <article class="result-card">
+
+                    <span class="result-label">
+                        Variables
+                    </span>
+
+                    <strong id="variableCount">
+                        0
+                    </strong>
+
+                    <p id="variableList">
+                        —
+                    </p>
+
+                </article>
+
+                <article class="result-card">
+
+                    <span class="result-label">
+                        Possible Cases
+                    </span>
+
+                    <strong id="caseCount">
+                        0
+                    </strong>
+
+                    <p>
+                        2ⁿ possible assignments
+                    </p>
+
+                </article>
+
+                <article class="result-card">
+
+                    <span class="result-label">
+                        True / False
+                    </span>
+
+                    <strong id="truthStatistics">
+                        0 / 0
+                    </strong>
+
+                    <p>
+                        True cases / False cases
+                    </p>
+
+                </article>
+
+            </div>
+
+            <!-- Formula representation -->
+
+            <div class="formula-display-card">
+
+                <span>
+                    Parsed Formula
+                </span>
+
+                <div id="formattedFormula">
+                    —
+                </div>
+
+            </div>
+
+            <!-- Explanation -->
+
+            <div class="explanation-card">
+
+                <div class="explanation-header">
+
+                    <div class="explanation-icon">
+                        ?
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            What does this mean?
+                        </h4>
+
+                        <p>
+                            A beginner-friendly explanation of the result.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div
+                    id="humanExplanation"
+                    class="human-explanation"
+                >
+                    —
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             LOGICAL EQUIVALENCE
+        ========================== -->
+
+        <section class="panel equivalence-panel">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Logical Equivalence Checker
+                    </h3>
+
+                    <p>
+                        Determine whether two propositions always have
+                        the same truth value.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="equivalence-inputs">
+
+                <div class="input-group">
+
+                    <label for="formulaA">
+                        Formula A
+                    </label>
+
+                    <input
+                        id="formulaA"
+                        type="text"
+                        spellcheck="false"
+                        placeholder="~(P ^ Q)"
+                    >
+
+                </div>
+
+                <div class="equivalence-symbol">
+                    ↔
+                </div>
+
+                <div class="input-group">
+
+                    <label for="formulaB">
+                        Formula B
+                    </label>
+
+                    <input
+                        id="formulaB"
+                        type="text"
+                        spellcheck="false"
+                        placeholder="~P v ~Q"
+                    >
+
+                </div>
+
+            </div>
+
+            <button
+                id="checkEquivalenceButton"
+                class="primary-button"
+                type="button"
+            >
+                <span>Check Equivalence</span>
+                <span>↔</span>
+            </button>
+
+            <div
+                id="equivalenceResult"
+                class="equivalence-result hidden"
+            >
+
+                <div
+                    id="equivalenceStatus"
+                    class="equivalence-status"
+                >
+                    —
+                </div>
+
+                <p id="equivalenceExplanation">
+                    —
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             TRUTH TABLE
+        ========================== -->
+
+        <section
+            id="truthTableSection"
+            class="panel table-panel hidden"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-number">
+                        04
+                    </span>
+
+                    <h3>
+                        Truth Table
+                    </h3>
+
+                    <p>
+                        Every possible assignment and every evaluation step.
+                    </p>
+
+                </div>
+
+                <button
+                    id="exportTableButton"
+                    class="small-button"
+                    type="button"
+                >
+                    Export CSV
+                </button>
+
+            </div>
+
+            <div class="table-info">
+
+                <div>
+                    <strong id="tableVariableInfo">
+                        —
+                    </strong>
+                </div>
+
+                <div>
+
+                    <span>
+                        <b class="legend-true">T</b> = True
+                    </span>
+
+                    <span>
+                        <b class="legend-false">F</b> = False
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="table-wrapper">
+
+                <table id="truthTable">
+
+                    <thead id="truthTableHead">
+                    </thead>
+
+                    <tbody id="truthTableBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             LOGIC PROCESS
+        ========================== -->
+
+        <section
+            id="processSection"
+            class="panel process-panel hidden"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-number">
+                        05
+                    </span>
+
+                    <h3>
+                        How the Engine Works
+                    </h3>
+
+                    <p>
+                        From your formula to a mathematical conclusion.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="process-flow">
+
+                <div class="process-step">
+
+                    <div class="process-number">
+                        1
+                    </div>
+
+                    <h4>
+                        Tokenize
+                    </h4>
+
+                    <p>
+                        The formula is divided into variables, operators,
+                        and parentheses.
+                    </p>
+
+                </div>
+
+                <div class="process-arrow">
+                    →
+                </div>
+
+                <div class="process-step">
+
+                    <div class="process-number">
+                        2
+                    </div>
+
+                    <h4>
+                        Parse
+                    </h4>
+
+                    <p>
+                        The parser builds an Abstract Syntax Tree according
+                        to operator precedence.
+                    </p>
+
+                </div>
+
+                <div class="process-arrow">
+                    →
+                </div>
+
+                <div class="process-step">
+
+                    <div class="process-number">
+                        3
+                    </div>
+
+                    <h4>
+                        Evaluate
+                    </h4>
+
+                    <p>
+                        Every possible truth assignment is evaluated.
+                    </p>
+
+                </div>
+
+                <div class="process-arrow">
+                    →
+                </div>
+
+                <div class="process-step">
+
+                    <div class="process-number">
+                        4
+                    </div>
+
+                    <h4>
+                        Classify
+                    </h4>
+
+                    <p>
+                        The result is classified as tautology,
+                        contradiction, or contingent.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             SYMBOL GUIDE
+        ========================== -->
+
+        <section class="panel guide-panel">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-number">
+                        06
+                    </span>
+
+                    <h3>
+                        Logic Symbol Guide
+                    </h3>
+
+                    <p>
+                        You don't need to memorize the symbols.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="symbol-grid">
+
+                <div class="symbol-card">
+
+                    <div class="symbol">
+                        ¬
+                    </div>
+
+                    <div>
+                        <strong>NOT</strong>
+
+                        <p>
+                            Negation — "not P"
+                        </p>
+
+                        <code>~P</code>
+                    </div>
+
+                </div>
+
+                <div class="symbol-card">
+
+                    <div class="symbol">
+                        ∧
+                    </div>
+
+                    <div>
+                        <strong>AND</strong>
+
+                        <p>
+                            Both statements must be true.
+                        </p>
+
+                        <code>P ^ Q</code>
+                    </div>
+
+                </div>
+
+                <div class="symbol-card">
+
+                    <div class="symbol">
+                        ∨
+                    </div>
+
+                    <div>
+                        <strong>OR</strong>
+
+                        <p>
+                            At least one statement is true.
+                        </p>
+
+                        <code>P v Q</code>
+                    </div>
+
+                </div>
+
+                <div class="symbol-card">
+
+                    <div class="symbol">
+                        →
+                    </div>
+
+                    <div>
+                        <strong>IMPLICATION</strong>
+
+                        <p>
+                            If P, then Q.
+                        </p>
+
+                        <code>P -> Q</code>
+                    </div>
+
+                </div>
+
+                <div class="symbol-card">
+
+                    <div class="symbol">
+                        ↔
+                    </div>
+
+                    <div>
+                        <strong>BICONDITIONAL</strong>
+
+                        <p>
+                            P and Q have the same truth value.
+                        </p>
+
+                        <code>P &lt;-&gt; Q</code>
+                    </div>
+
+                </div>
+
+                <div class="symbol-card">
+
+                    <div class="symbol">
+                        ( )
+                    </div>
+
+                    <div>
+                        <strong>PARENTHESES</strong>
+
+                        <p>
+                            Control the order of evaluation.
+                        </p>
+
+                        <code>(P ^ Q)</code>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             LEARNING SECTION
+        ========================== -->
+
+        <section class="panel learning-panel">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-number">
+                        07
+                    </span>
+
+                    <h3>
+                        Logic in One Story
+                    </h3>
+
+                    <p>
+                        A simple real-world way to understand implication.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="story">
+
+                <div class="story-character">
+                    <span>☂</span>
+                </div>
+
+                <p>
+                    Imagine that <strong>P</strong> means:
+                    <em>"It is raining."</em>
+                </p>
+
+                <p>
+                    And <strong>Q</strong> means:
+                    <em>"I take an umbrella."</em>
+                </p>
+
+                <div class="story-formula">
+                    P → Q
+                </div>
+
+                <p>
+                    This means:
+                    <strong>
+                        "If it is raining, then I take an umbrella."
+                    </strong>
+                </p>
+
+                <p>
+                    The simulator does not simply tell you the final answer.
+                    It checks every possible situation:
+                    Is it raining? Did you take an umbrella?
+                    Then it determines whether the entire statement is true.
+                </p>
+
+                <p>
+                    This is the fundamental idea behind a truth table:
+                    <strong>
+                        systematically examining every possible combination
+                        of truth values.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <footer class="site-footer">
+
+            <div>
+
+                <strong>
+                    Logic & Truth Value Simulator
+                </strong>
+
+                <p>
+                    An educational propositional logic engine built with
+                    HTML, CSS and Vanilla JavaScript.
+                </p>
+
+            </div>
+
+            <div class="footer-badge">
+                <span>✓</span>
+                No external logic libraries
+            </div>
+
+        </footer>
+
+    </main>
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="js/parser.js"></script>
+    <script src="js/logic-engine.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
